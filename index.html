@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOREH</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e9e9e9;
+            color: black; 
+            font-size:  calc((100vh + 100vw)/90);
+        }
+        a { cursor: pointer; }
+        a:hover{ cursor: pointer; color: red; }
+
+#portada { opacity: 1;  font-size:  calc((100vh + 100vw)/50);}     
+
+.texto {
+    padding-bottom: 3%;
+    padding-top: 3%;
+  overflow: auto;
+  position: absolute;
+  left: 0%;
+  top:0%;
+  right: 0%;
+  bottom: 0%;
+  color: rgb(0, 0, 0);
+  font-weight: normal; /* Uso de font-weight para negritas */
+  font-size:  calc((100vh + 100vw)/90);
+  border: 0;
+  word-wrap: break-word; /* Asegurar que las palabras largas se dividan */
+  overflow-wrap: break-word; /* Asegurar que las palabras largas se dividan */
+  white-space: normal; /* Asegurar que el texto no se salga de su contenedor */
+  margin: 0 auto;
+  box-sizing: border-box;
+  line-height: 1;
+  padding-left:  20% ; 
+  padding-right: 20% ;
+
+  flex-direction: column;
+  align-content: center;
+text-align: center;
+justify-content: center;
+}
+.texto a {color: rgb(0, 0, 0); }
+.texto a:hover {color: rgb(255, 0, 0);}
+
+.va {opacity: 0;}
+#sitio1 {display: none;}#sitiodev {display: none;} #sitio2 {display: none;} #sitio3 {display: none;} #sitio4 {display: none;} #sitio5 {display: none;} #sitio6 {display: none;} #sitio7 {display: none;}
+#menu {display: none;  background-color: #e9e9e9;  height: 100%;
+    width: 100%; position: absolute; top: 0%; left: 0%;}
+#descansar {display: none;}#aldea {display: none;}#tienda {display: none;}#piedra {display: none;}#rama {display: none;}#oso {display: none;} #combate {display: none;} 
+#victoria {display: none;} #muerte {display: none;}#despertar {display: none;}#levantarme {display: none;}#desayunar {display: none;} #ok {display: none;}
+#banio {display: none;}#calle {display: none;}#inicio {display: none;}
+
+.solido {position: absolute; top: 0%;left: 0%;right: 0%;bottom: 0%;background-color: #e9e9e9;}#huida {display: none;}#huidafail {display: none;}#inventario {display: none;}
+
+
+#estatus { position: absolute; bottom: 3%; left:3%; display: none; 
+transform: translateX(0%);   flex-direction: column;  line-height:0.5;justify-content: initial; 
+background-color: #e9e9e9;
+
+}
+
+
+.trapecio {
+            position: absolute;
+            top: 50%;
+            bottom: 5%;
+            left: 0%;
+            right: 0%;
+            background-color: #32cf61;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+        }
+
+        .cesped {position: absolute;top: 0%;bottom: 0%;left: 0%;right: 0%;
+    background-color: #14a857;color: white;border: 1px rgb(20, 160, 50) solid;
+}
+.tronco {
+        position: absolute;
+        top: -50%;
+        left:40%;
+        width: 20%;
+    height: 100%;
+    border: 0px black solid;
+    background-color: #8b6719;
+    color: white;}
+
+.roca {
+        position: absolute;
+        top: 30%;
+        left:40%;
+        width: 20%;
+    height: 10%;
+    border: 1px rgb(102, 102, 102) solid;
+    background-color: #9c9c9c;
+color: white;}
+
+
+.follaje {
+        position: absolute;
+        bottom: 150%;
+        left:-50%;
+        width: 200%;
+    height: 200%;
+    border: 1px rgb(7, 153, 68) solid;
+    background-color: #0ca867;
+    color: white;
+}
+.osmos {
+        position: absolute;
+        bottom: 30%;
+        left:25%;
+        width: 50%;
+    height: 100%;
+    border: 1px rgb(153, 7, 87) solid;
+    background-color: #fa29bb;
+    color: white;}
+    .suelo { width: 100%;
+    height: 100%;
+    position: absolute;  
+}  
+
+#arbol1 {position: absolute;
+height: 20%;width: 10%;
+bottom: 10%;left: 15%;cursor: pointer;}
+
+#arbol2 {position: absolute;
+height: 15%;width: 7%;
+bottom:20%;left:25%;}
+
+#zindex { position: absolute; bottom: 45%; left:55%; 
+background-color: #e9e9e9;
+
+}
+
+
+</style>
+
+</head>
+<body>
+<div id="portada">
+<a onclick="pliegue('portada','none'), pliegue('inicio','flex'), pliegue('estatus','inline');" type="submit">KOREH</a>    
+</div>
+
+<div id="sitio1"><div class="texto" >
+<p>CASA</p>  
+<p class="va">.</p>
+<p><a onclick="pliegue('descansar','flex');" type="submit">Descansar</a></p>
+<p><a onclick="pliegue('inventario','flex');" type="submit">Inventario</a></p>
+<p class="va">.</p>
+
+<p><a onclick="pliegue('sitio1','none'), pliegue('sitio3','flex');" type="submit">→</a></p>
+<p><a onclick="pliegue('sitio1','none'), pliegue('sitio4','flex');" type="submit">←</a></p>
+</div></div>
+
+<div id="sitio2"><div class="texto" >
+    <p>Cultivos:</p>  
+    
+    <p>Tomate: Plantado 2. <a onclick="" type="submit">Plantar Tomate</a> / <a onclick="" type="submit">Recolectar Tomate</a></p>
+    <p>Patata: Plantado 2. <a onclick="" type="submit">Plantar Patata</a> / <a onclick="" type="submit">Recolectar Patata</a></p>
+    <p>Lechuga: Plantado 2. <a onclick="" type="submit">Plantar Lechuga</a> / <a onclick="" type="submit">Recolectar Lechuga</a></p>
+
+<p class="va">.</p>
+<a onclick="pliegue('sitio2','none'), pliegue('sitio1','flex');" type="submit">Camino a Sitio 1</a>    
+</div></div>
+
+<div id="sitio3"><div class="texto" >
+<p>BOSQUE</p> 
+<p class="va">.</p>
+<p>   <a onclick="buscar();" type="submit">Arbustos</a></p>
+<p class="va">.</p>
+<a onclick="pliegue('sitio3','none'), pliegue('sitio1','flex');" type="submit">←</a>    
+</div></div>
+
+<div id="sitio4"><div class="texto" >
+    <p>CAMINOS</p> 
+    <p class="va">.</p>
+ <p>   <a onclick="pliegue('sitio4','none'), pliegue('aldea','flex');" type="submit">←</a></p>
+ <p>   <a onclick="pliegue('sitio4','none'), pliegue('sitio1','flex');" type="submit">→</a></p>    
+</div></div>
+
+<div id="aldea"><div class="texto" >
+    <p>ALDEA</p> 
+    <p class="va">.</p>
+  <p> <a onclick="pliegue('aldea','none'), pliegue('tienda','flex');" type="submit">Tienda</a> </p>    
+  <p>  <a onclick="pliegue('aldea','none'), pliegue('sitio4','flex');" type="submit">→</a>    </p>
+</div></div>
+
+<div id="tienda"><div class="texto" >
+    <p>TIENDA</p> 
+    <p>Poción  <a onclick="">Comprar</a> </p>
+    <p>Tronco  <a onclick="" type="submit">Vender</a> </p>
+    <p class="va">.</p>
+    <a onclick="pliegue('tienda','none'), pliegue('aldea','flex');" type="submit">✖</a>    
+</div></div>
+
+<div id="despertar"><div class="texto" >
+    <p>Has descansado y recuperado tus puntos de salud, piensas mientras das los primeros parpadeos del día. Es el año 2024 y el mundo está como siempre. 
+        La rutina es la reina, rutina y rabia, pena, dolor, sufrimiento... en fín, menos mal que tu vives normal. No te puedes quejar a veces piensas.</p>
+    
+        <p> ¿Sábes que vas a hacer después de vestirte? A ver tenemos... dos cosas que hacer, ir a recoger un paquete a la oficina de correo y ser algo de productivo. 
+        ¿Música o programación? Luego decidiremos, de momento ve a desayunar.</p>
+    
+    
+        <p>  Te hechas un vaso de zumo de naranja en un vaso y coges un bollo de esos rellenos de chocolate. No es lo más nutritivo pero al menos es algo. 
+        Agredeces curiosamente al Todo la comida y te vas al salón a comer lento y tendido mientras el organismo despierta completamente.</p>
+
+
+        <p>  Bueno... ya creo que está bien, sentencias para tus adentros. Te incorporas ya con las tripas activas y las manos aceitosas y 
+        decides es momento de una última visita al baño y a la calle a por eso...</p>
+
+        <p>Lavas tu cara con agua cristalina y fría del grifo del baño y exalas con decisión de comerte el mundo pero con tranquilidad. </p>
+     
+        <p class="va">.</p>
+    <a onclick="pliegue('despertar','none'), pliegue('calle','flex');" type="submit">Salir a la calle</a>    
+</div></div>
+<div id="inicio"><div class="texto" >
+    <p>Capítulo 1</p>
+        <p class="va">.</p>
+    <a onclick="pliegue('inicio','none'), pliegue('sitio1','flex');" type="submit">Iniciar</a>    
+    <a onclick="pliegue('inicio','none'), pliegue('sitiodev','flex');" type="submit">Iniciar dev</a>
+</div></div>
+
+<div id="sitiodev"><div class="texto" >
+    <p>Main</p>
+        <p class="va">.</p>
+        <div class="trapecio"></div>
+        <div id="arbol2" ><div class="suelo"><div class="tronco"></div><div class="follaje"></div></div></div>
+        <div id="arbol1" ><div class="suelo"><div class="tronco"></div><div class="follaje"></div></div></div>
+ <div id="zindex" ><a  onclick="pliegue('inicio','none'), pliegue('sitiodev','flex');" type="submit">Opcion A</a></div> 
+ <div id="talararbol" ><a  onclick="pliegue('inicio','none'), pliegue('sitiodev','flex');" type="submit">Opcion A</a></div>   
+</div></div>
+
+
+
+<div id="calle"><div class="texto" >
+    <p>Sales a la calle y pues poco misterio, vas a la oficina a un ritmo más bien lento, la digestión está empezando y tampoco estás en una carrera asi que te lo tomas con calma.
+Te cruzas con dos conocidos y llegas a tu destino, haces la cola correspondiente y le muestras muestras el móvil un instante para escanear un código QR  con la info del paquete.
+    </p>
+<p>Una vez paquete en mano, vuelves a casa esta vez más rápido, algo te está impacientando pero pasaremos de eso por ahora. Lo importante ahora es saber que es el paquete...
+    Es un regalo que te envía tu tía de francia. No tienes ni idea de lo que hay en la caja pero por lo que se ve, parece que pesa. 
+    Te lo envía por que ha sido año nuevo y dice que quiere hacerte un detalle.
+</p>
+<p></p>
+    <p class="va">.</p>
+    <a onclick="pliegue('desayunar','none'), pliegue('ok','flex');" type="submit">Ir al baño</a>    
+</div></div>
+
+
+
+
+<div id="descansar" class="solido"><div class="texto" >
+    <p>Recuperado</p>
+    <p class="va">.</p>
+    <a onclick="pliegue('descansar','none');" type="submit">Okey</a>    
+</div></div>
+<div id="rama" class="solido"><div class="texto" >
+    <p>Rama + 1</p><p class="va">.</p>
+    <a onclick="pliegue('rama','none');" type="submit">Okey</a>    
+</div></div>
+<div id="piedra" class="solido"><div class="texto" >
+    <p>Piedra + 1</p><p class="va">.</p>
+    <a onclick="pliegue('piedra','none');" type="submit">Okey</a>    
+</div></div>
+<div id="oso" class="solido"><div class="texto" >
+    <p>OSO</p><p class="va">.</p>
+   <p><a onclick="combate(1500,100,'Oso'), pliegue('oso','none'), pliegue('combate','flex');" type="submit">Luchar</a>   </p>  
+   <p><a onclick="combate(1500,100,'Oso'), pliegue('oso','none'), huir();" type="submit">Huir</a> </p>
+</div></div>
+
+
+
+
+
+
+<div id="inventario" class="solido"><div class="texto">
+    <p>INVENTARIO</p>
+    <p class="va">.</p>
+    
+   <p><a onclick="pliegue('inventario','none');" type="submit">✖</a> </p>
+</div></div>
+
+<div id="combate" class="solido"><div class="texto" >
+    <p><span id="nombreenemigo"></span></p>
+    <p>Vida Enemigo <span id="vidaenemigo"></span></p><p class="va">.</p>
+  <p> <a onclick="luchar();" type="submit">Luchar</a>   </p>  
+  <p> <a onclick="" type="submit">Usar Poder</a>   </p>
+</div></div>
+
+<div id="huida" class="solido"><div class="texto" >
+    <p>Exito</p><p class="va">.</p>  
+  <p> <a onclick="pliegue('huida','none');" type="submit">Okey</a>   </p>
+</div></div>
+<div id="huidafail" class="solido"><div class="texto" >
+    <p>Alcanzado</p><p class="va">.</p>  
+  <p> <a onclick="pliegue('huidafail','none'), pliegue('combate','flex');" type="submit">Okey</a>   </p>
+</div></div>
+
+<div id="menu"><div class="texto" >
+    <p></p> 
+    <p class="va">.</p>
+    <a onclick="pliegue('menu','none');" type="submit">Cerrar Menú</a>    
+</div></div>
+
+
+<div id="muerte" class="solido"><div class="texto" >
+    <p>FIN</p><p class="va">.</p>  
+</div></div>
+
+<div id="victoria" class="solido"><div class="texto" >
+    <p>Esencia + X.</p><p class="va">.</p>  
+    <p> <a onclick="pliegue('victoria','none');" type="submit">Okey</a>   </p>
+</div></div>
+
+<div id="estatus"> <p>Salud <span id="vida">  </span>  </p> </div>
+
+
+
+
+
+<script>
+///////////////////////////FUNCIONES//////////////////////////////
+function pliegue (idobjeto,estado) {document.getElementById(idobjeto).style.display = estado;}
+var oro = 14.5; var vida = 6;var energia = 100; var aleatorio = 0; var vidaenemigo = 0; var poderenemigo = 0; var nombreenemigo = "";
+var poder = 200; var podercalculo = 0;
+var rama = 0; var piedra = 0; var tronco = 0 ;
+document.getElementById('vida').innerText = vida; 
+document.getElementById('oro').innerText = oro; 
+document.getElementById('energia').innerText = energia; 
+
+function buscar() {const randomNumber = Math.floor(Math.random() * 5); // Genera un número entre 0 y 2
+if (randomNumber === 0) {pliegue('rama','flex'); rama = rama + 1 ;} 
+if (randomNumber === 1) {pliegue('piedra','flex'); piedra = piedra + 1 ;}
+if (randomNumber === 3) {pliegue('rama','flex'); rama = rama + 1 ;} 
+if (randomNumber === 4) {pliegue('piedra','flex'); piedra = piedra + 1 ;}  
+if (randomNumber === 2) {pliegue('oso','flex'); } }
+
+function combate(venemigo,penemigo,nenemigo) {
+    vidaenemigo = venemigo;
+    poderenemigo = penemigo; 
+    nombreenemigo = nenemigo; 
+    document.getElementById('nombreenemigo').innerText = nombreenemigo; 
+    document.getElementById('vidaenemigo').innerText = vidaenemigo;
+}
+
+function luchar() {
+    var randomNumber = Math.floor(Math.random() * poderenemigo)
+    podercalculo = poderenemigo;
+    podercalculo = podercalculo - randomNumber ;
+    vida = vida - podercalculo ;
+    var randomNumber2 = Math.floor(Math.random() * poder)
+    podercalculo = poder;
+    podercalculo = podercalculo - randomNumber2 ;
+    vidaenemigo =  vidaenemigo - podercalculo;
+    refrescar();
+    if (vida < 1) {pliegue('muerte','flex');pliegue('combate','none');} else 
+    if (vidaenemigo < 1) {pliegue('victoria','flex');pliegue('combate','none');} 
+}
+
+
+function huir() {  const randomNumber = Math.floor(Math.random() * 3); 
+    if (randomNumber === 0) {pliegue('huida','flex');}
+    if (randomNumber === 1) {pliegue('huidafail','flex');}
+    if (randomNumber === 2) {pliegue('huidafail','flex'); }
+ }
+
+
+ function refrescar() {   
+document.getElementById('nombreenemigo').innerText = nombreenemigo; 
+document.getElementById('vidaenemigo').innerText = vidaenemigo;
+document.getElementById('vida').innerText = vida;
+document.getElementById('energia').innerText = energia;
+document.getElementById('rama').innerText = rama;
+document.getElementById('piedra').innerText = piedra;
+document.getElementById('tronco').innerText = tronco;
+
+}
+
+</script>
+</body>
+</html>
